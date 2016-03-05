@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>URoar</title>
+    <!-- Link Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+   
+  </head>
+  <body>
+      <h1 style="text-align:center;">Register</h1>
+      <div class="container">
+          <form class="registerForm">
+          <label for="inputUserEmail">E-Mail:</label>
+
+          <input type="email" id = "regEmail" class="form-control" placeholder="E-Mail" required autofocus>
+          <br>
+          <label for="inputUserName">User Name:</label>
+          <input type="text" id="regName" class="form-control" placeholder="User Name" pattern="[A-Za-z].{1}">
+          <br>
+          <p><strong>Note:</strong>User name should be more than one letter.(letters only)</p>
+          <label for="inputPassword">Password:</label>
+          <input type="password" id="regPassword" class="form-control" placeholder="Password" required>
+          <br>
+          <label for="inputPassword">Reenter Password:</label>
+          <input type="password" id="regPasswordAgain" class="form-control" placeholder="Password" required>
+          </form>
+          
+          <br><br>
+          <div style="text-align:center;">
+            <button onclick="signUpUser()" class="btn btn-md btn-info" type="submit">Sign Up</button>
+            <div>
+              <br>
+              <br>
+            </div>
+            <button onclick="cancel()" class="btn btn-md btn-info" type="submit">Cancel</button>
+          </div>
+          <br><br>
+          
+          <div id="regError"></div>
+          
+          
+          
+          
+          
+    <script src="lib/jquery-1.12.1.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/handlebars-v4.0.5.js"></script>
+    <script src="js/login.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+      </div>
+  </body>
+</html>

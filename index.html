@@ -1,1 +1,58 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Roar</title>
+    <!-- Link Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet" type="text/css"/>
+  </head>
+
+  
+  
+  <body>
+
+      
+      <div style="text-align:center; margin-top:12%; margin-left: 12%; margin-right: 12%;">        
+        <h1><strong>Roar..</strong></h1>
+        <h4>Assemble Your Friends</h4>
+      </div>
+      
+        <div class="container">
+      <br>
+      <form class="form-signin">
+          <label for="inputEmail">E-Mail:</label>
+          <input type="email" size="30" id="inputEmail" class="form-control" placeholder="E-Mail" required autofocus>
+          <br>
+          <label for="inputPassword">Password:</label>
+          <input type="password" size="30" id="inputPassword" class="form-control" placeholder="Password" required>
+      </form>
+          <div class="checkbox">
+              <label>
+                <input type="checkbox" value="remember-me"> Remember me
+              </label>
+          </div>
+          <br>
+          <div style="text-align:center;">
+            <button onclick="authorizeLogin()" class="btn btn-md btn-info" type="submit" style="width:80%">Sign in</button>
+          </div>
+
+      </div>
+      <br><br>
+      <p style="text-align: center;">Don't Have an Account?</p>
+
+       <div style="text-align:center;">
+        <a href="register.html" style="text-align: center;">Register</a>
+      </div>
+      <br>
+      <div id="logError"></div>
+    <!--Bootstrap-->
+    <script src="lib/jquery-1.12.1.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/handlebars-v4.0.5.js"></script>
+    <script src="js/login.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+  </body>
+</html>
