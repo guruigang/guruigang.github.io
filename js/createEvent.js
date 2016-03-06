@@ -48,9 +48,10 @@ function geocodeAddress(address) {
         geocoder.geocode({'address': address}, function(results, status) {
           if (status === google.maps.GeocoderStatus.OK) {
                      
-              position: results[0].geometry.location;
+               
 
-              console.log("position"+position);
+              console.log("lat is"+results[0].geometry.location.lat;);
+              
 
           } else {
             alert('Geocode was not successful for the following reason: ' + status);
