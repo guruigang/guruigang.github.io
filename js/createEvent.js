@@ -49,8 +49,8 @@ function geocodeAddress(address) {
           if (status === google.maps.GeocoderStatus.OK) {
                      
                
-
-              console.log("lat is"+results[0].geometry.location.nb);
+          	  console.log(results);
+              console.log("lat is"+results[0].geometry.location.lat);
 
 
           } else {
