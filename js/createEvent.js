@@ -1,11 +1,9 @@
+var ref = new Firebase("https://uroar.firebaseio.com");
+var currUser = sessionStorage.getItem('currUid');
+var currGeoLoca = []; 
 $(document).ready(function() {
 
 })
-// This example displays an address form, using the autocomplete feature
-// of the Google Places API to help users fill in the information.
-// This example requires the Places library. Include the libraries=places
-// parameter when you first load the API. For example:
-// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
 var placeSearch, autocomplete;
 
@@ -28,9 +26,12 @@ function initAutocomplete() {
 function geolocate() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
+           currGeoLoca[0] = position.coords.latitude;
+           currGeoLoca[1] = position.coords.longitude;
            var geolocation = {
            lat: position.coords.latitude,
            lng: position.coords.longitude
+
            };
            var circle = new google.maps.Circle({
            center: geolocation,
@@ -40,4 +41,41 @@ function geolocate() {
          });
     }
 }
- 
+
+function geocodeAddress(address) {
+        
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === google.maps.GeocoderStatus.OK) {
+                     
+              position: results[0].geometry.location;
+
+              console.log("position"+position);
+
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+}
+
+function pushInfo(){
+	var title = $('#titleInput').val();
+	console.log("title is :" + title);
+	var dateTime = $("#dateTimeInput").val().replace("T"," ");
+	console.log("time is :" + dateTime);
+	var address = $('#autocomplete').val;
+	console.log("address is "+address);
+	var numPeople = $('#numInput').val();
+	console.log("address is "+address);
+	var descrip = $('#descripInput').val();
+	console.log("descrip is "+descrip);
+	geocodeAddress(address);
+
+
+	ref.child("users").child(currUser).child("event").set({
+		title:title,
+		time:dateTime
+
+    	         
+    });
+
+}

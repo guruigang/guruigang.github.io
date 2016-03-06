@@ -1,3 +1,7 @@
+
+
+
+var ref = new Firebase("https://uroar.firebaseio.com");
 $(document).ready(function() {
 	initializePage();
 
@@ -41,7 +45,7 @@ function signUpUser() {
     else
     {
 
-       var ref = new Firebase("https://uroar.firebaseio.com");
+       
        ref.createUser({
          email    : userEmail,
          password : passWord,
@@ -77,14 +81,33 @@ function authorizeLogin() {
         $('#logError').html('<p style="color:red;text-align:center;">ERROR: PLEASE ENTER BOTH EMAIL AND PASSWORD</p>');
         console.log("here");
     }else{
-        var ref = new Firebase("https://uroar.firebaseio.com");
         ref.authWithPassword({
             email    : userEmail,
             password : passWord
         }, function(error, authData) {
             if (error) {
-                console.log("Login Failed!", error);
+                switch (error.code) {
+                  case "INVALID_EMAIL":
+                   $('#logError').html('<p style="color:red;text-align:center;">ERROR: The user account email is invalid</p>');
+                    console.log("The specified user account email is invalid.");
+                break;
+                case "INVALID_PASSWORD":
+                $('#logError').html('<p style="color:red;text-align:center;">ERROR: The user account password is incorrect.</p>');
+                    console.log("The specified user account password is incorrect.");
+                break;
+                case "INVALID_USER":
+                $('#logError').html('<p style="color:red;text-align:center;">ERROR: The user account does not exist.</p>');
+                  console.log("The specified user account does not exist.");
+                break;
+                default:
+                console.log("Error logging user in:", error);
+    }
+
+
+
+
             } else {
+                sessionStorage.setItem('currUid',authData.uid);
                 window.location.href = 'myEvents.html';
                 console.log("Authenticated successfully with payload:", authData);
             }
