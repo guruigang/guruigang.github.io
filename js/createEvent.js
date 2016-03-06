@@ -84,9 +84,9 @@ function pushInfo(){
 
 	ref.child("users").child(currUser).child("event").set({
 		title:title,
-		time:dateTime
-
-    	         
+		time:dateTime,
+		number:numPeople,
+		description:descrip
     });
 
 }

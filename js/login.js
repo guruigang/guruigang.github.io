@@ -55,6 +55,7 @@ function signUpUser() {
             console.log("Error creating user:", error);
           } else {
              ref.child("users").child(userData.uid).set({
+             email: userEmail,
              name: userName
              });
              window.location.href = 'index.html';
