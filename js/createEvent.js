@@ -2,7 +2,7 @@ var ref = new Firebase("https://uroar.firebaseio.com");
 var currUser = sessionStorage.getItem('currUid');
 var currGeoLoca = []; 
 var addressGeo =[];
-var geoFire = new GeoFire(ref);
+var geoFire = new GeoFire(ref.child("users").child(currUser).child("event"));
 var groRef = geoFire.ref();
 
 $(document).ready(function() {
