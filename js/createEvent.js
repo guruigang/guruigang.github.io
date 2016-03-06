@@ -1,6 +1,7 @@
 var ref = new Firebase("https://uroar.firebaseio.com");
 var currUser = sessionStorage.getItem('currUid');
 var currGeoLoca = []; 
+
 $(document).ready(function() {
 
 })
@@ -14,6 +15,7 @@ function initAutocomplete() {
     autocomplete = new google.maps.places.Autocomplete(
      /** @type {!HTMLInputElement} */(document.getElementById('autocomplete'));
         // When the user selects an address from the dropdown, populate the address
+    
      
  }
 
@@ -61,7 +63,7 @@ function pushInfo(){
 	console.log("title is :" + title);
 	var dateTime = $("#dateTimeInput").val().replace("T"," ");
 	console.log("time is :" + dateTime);
-	var address = document.getElementById('autocomplete');
+	var address = autocomplete.getPlace();
 	console.log("address is "+address);
 	var numPeople = $('#numInput').val();
 	var descrip = $('#descripInput').val();
