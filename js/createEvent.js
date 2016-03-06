@@ -50,8 +50,8 @@ function geocodeAddress(address) {
                      
                
 
-              console.log("lat is"+results[0].geometry.location.lat;);
-              
+              console.log("lat is"+results[0].geometry.location.lat);
+
 
           } else {
             alert('Geocode was not successful for the following reason: ' + status);
