@@ -54,12 +54,14 @@ function signUpUser() {
           if (error) {
             console.log("Error creating user:", error);
           } else {
-             ref.child("users").child(userData.uid).set({
-             email: userEmail,
-             name: userName
-             });
-             window.location.href = 'index.html';
+           
              console.log("Successfully created user account with uid:", userData.uid);
+
+             ref.authWithPassword({
+                    email: userEmail,
+                    password: passWord,
+                },signupLoginCallback);
+
           }
         });
 
@@ -69,6 +71,28 @@ function signUpUser() {
     }
         
 }
+
+var signupLoginCallback = function(error,authData)
+  {
+    var userEmail=$('#regEmail').val();
+    var userName = $('#regName').val();
+    if (error) 
+    {
+      console.log("Login Failed!", error);
+    } 
+    else 
+    {
+      console.log("Authenticated successfully with payload:", authData);
+      ref.child("users").child(authData.uid).set({
+             email: userEmail,
+             name: userName
+             });
+
+      window.location.href = 'index.html';
+      
+     
+    }
+  }
 
 
 function authorizeLogin() {
@@ -119,6 +143,8 @@ function authorizeLogin() {
     
            
 }
+
+
 
 function cancel(){
  window.location.href = 'index.html';
