@@ -43,6 +43,7 @@ function geolocate() {
 }
 
 function geocodeAddress(address) {
+	    var geocoder = new google.maps.Geocoder;
         
         geocoder.geocode({'address': address}, function(results, status) {
           if (status === google.maps.GeocoderStatus.OK) {
@@ -65,7 +66,6 @@ function pushInfo(){
 	var address = $('#autocomplete').val;
 	console.log("address is "+address);
 	var numPeople = $('#numInput').val();
-	console.log("address is "+address);
 	var descrip = $('#descripInput').val();
 	console.log("descrip is "+descrip);
 	geocodeAddress(address);
