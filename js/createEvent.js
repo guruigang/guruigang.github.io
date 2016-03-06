@@ -63,7 +63,7 @@ function pushInfo(){
 	console.log("title is :" + title);
 	var dateTime = $("#dateTimeInput").val().replace("T"," ");
 	console.log("time is :" + dateTime);
-	var address = autocomplete.getPlace();
+	var address = autocomplete.getPlace().formatted_address;
 	console.log("address is "+address);
 	var numPeople = $('#numInput').val();
 	var descrip = $('#descripInput').val();
