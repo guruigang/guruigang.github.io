@@ -5,6 +5,7 @@ var ref = new Firebase("https://uroar.firebaseio.com");
 $(document).ready(function() {
 	initializePage();
 
+
 })
 
 
@@ -147,6 +148,27 @@ function authorizeLogin() {
 
 
 function cancel(){
- window.location.href = 'index.html';
+window.location.href = 'index.html';
 
 }
+
+
+
+
+ var authDataCallback = function(authData) {
+        console.log("authCallback Event is called from onAuth Event");
+        if (authData) {
+            console.log("User " + authData.uid + " is logged in with " + authData.provider);
+            userData = authData;
+            loadProfile();
+            setUpFirebaseEvents();
+
+        } else {
+            console.log("User is logged out");
+            $(".status").html('You are not logged in!').show();
+            userData = null;
+            listRef = null;
+        }
+    }
+
+    ref.onAuth(authDataCallback);

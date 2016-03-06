@@ -1,5 +1,12 @@
+var ref = new Firebase("https://uroar.firebaseio.com");
 $(document).ready(function() {
 	initializeNav();
+    $("#logout").on('click', function() {
+        ref.unauth();
+        window.location.href = 'index.html';
+        
+    });
+
     
 
    //console.log(window.location.href);
@@ -19,7 +26,7 @@ $(document).ready(function() {
 
 function initializeNav() {
    
-    var htmlStr2 ='<nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="myEvents.html">URoar</a></div><div class="collapse navbar-collapse" id="myNavbar"><ul class="nav navbar-nav"><li id="myEvents"><a href="myEvents.html">Home</a></li><li id="createEvent"><a href="createEvent.html">Create Event</a></li><li><a href="#">Friends</a></li></ul><ul class="nav navbar-nav navbar-right"> <li><a href="myProfile.html"><span class="glyphicon glyphicon-user"></span> Profile</a></li><li><a href="index.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li></ul></div></div></nav>';
+    var htmlStr2 ='<nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="myEvents.html">URoar</a></div><div class="collapse navbar-collapse" id="myNavbar"><ul class="nav navbar-nav"><li id="myEvents"><a href="myEvents.html">Home</a></li><li id="createEvent"><a href="createEvent.html">Create Event</a></li><li><a href="#">Friends</a></li></ul><ul class="nav navbar-nav navbar-right"> <li><a href="myProfile.html"><span class="glyphicon glyphicon-user"></span> Profile</a></li><li id="logout"><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li></ul></div></div></nav>';
 
     $("#navbar").html(htmlStr2);    
 }
@@ -27,3 +34,5 @@ function initializeNav() {
 function logout() {
     window.location.href = 'index.html';
 }
+
+
