@@ -1,6 +1,7 @@
 var ref = new Firebase("https://uroar.firebaseio.com");
 var currUser = sessionStorage.getItem('currUid');
 var currGeoLoca = []; 
+var addressGeo =[];
 var geoFire = new GeoFire(ref);
 var groRef = geoFire.ref();
 
@@ -53,8 +54,9 @@ function geocodeAddress(address) {
                
           	  console.log(results);
               console.log("lat is"+results[0].geometry.location);
-              
-              geoFire.set(address, results[0].geometry.location).then(function() {
+              addressGeo[0] =results[0].geometry.location.lat();
+              addressGeo[1] =results[0].geometry.location.lng();
+              geoFire.set(address, addressGeo).then(function() {
   				console.log("Provided key has been added to GeoFire");
 			  }, function(error) {
   				console.log("Error: " + error);
