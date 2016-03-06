@@ -13,7 +13,7 @@ function initAutocomplete() {
    // location types.
     autocomplete = new google.maps.places.Autocomplete(
      /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-      {types: ['geocode']});
+      {types: ['all']});
 
         // When the user selects an address from the dropdown, populate the address
      
@@ -63,7 +63,7 @@ function pushInfo(){
 	console.log("title is :" + title);
 	var dateTime = $("#dateTimeInput").val().replace("T"," ");
 	console.log("time is :" + dateTime);
-	var address = $('#autocomplete').val;
+	var address = document.getElementById('autocomplete');
 	console.log("address is "+address);
 	var numPeople = $('#numInput').val();
 	var descrip = $('#descripInput').val();
