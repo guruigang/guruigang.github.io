@@ -160,8 +160,7 @@ window.location.href = 'index.html';
         if (authData) {
             console.log("User " + authData.uid + " is logged in with " + authData.provider);
             userData = authData;
-            loadProfile();
-            setUpFirebaseEvents();
+
 
         } else {
             console.log("User is logged out");
