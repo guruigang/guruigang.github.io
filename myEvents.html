@@ -25,20 +25,26 @@
     <div id="navbar"></div>
     <div class="container">
 
+       
+    <script id="expressions-template" type="text/x-handlebars-template">
+        {{#each events}}
         <div class="w3-card-2">
             <header class="w3-container w3-light-grey">
-                <h3>John Doe</h3>
+                <h3>{{name}}</h3>
             </header>
             <div class="w3-container">
-                <p>1 new friend request</p>
+                <p>{{title}}</p>
                 <hr>
-                <p>President/CEO at Mighty Schools...</p>
+                <p>{{description}}</p>
                 </div>
                 <button class="w3-btn-block w3-dark-grey">Jion +</button>
             </div>
            
-    </div>
+        </div>
+
+    </script>
     
+    <div class="display-cards"></div>
 
   
 
