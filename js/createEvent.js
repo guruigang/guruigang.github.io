@@ -72,7 +72,7 @@ function geocodeAddress(address) {
 
 
 
-function pushEvnet(userName){
+function pushEvent(userName){
 
   ref.child("events").child(authData.uid).set({
     author:userName,
