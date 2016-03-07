@@ -4,6 +4,7 @@ var currGeoLoca = [];
 var addressGeo =[];
 var geoFire = new GeoFire(ref.child("users").child(currUser).child("event"));
 var groRef = geoFire.ref();
+var authData = ref.getAuth();
 
 $(document).ready(function() {
 
@@ -81,12 +82,40 @@ function pushInfo(){
 	console.log("descrip is "+descrip);
 	geocodeAddress(address);
 
-
-	ref.child("users").child(currUser).child("event").set({
+  //push evet info under user
+	ref.child("users").child(authData.uid).child("event").set({
 		title:title,
 		time:dateTime,
 		number:numPeople,
 		description:descrip
     });
+
+  //get current user info
+  ref.child('users').child(authData.uid).on("value", function(snapshot) {
+    console.log(snapshot.val());
+    var data = snapshot.val();
+    var uid="5ca06f8e-0c11-48fa-a218-4e43d0296d68";
+    var userName = data.name;
+
+    
+    pushEvent(userName);
+
+  }, function (errorObject) {
+      console.log("The read failed: " + errorObject.code);
+  } );
+
+}
+
+
+function pushEvnet(userName){
+
+  ref.child("events").child(authData.uid).set({
+    author:userName,
+    title:title,
+    time:dateTime,
+    number:numPeople,
+    description:descrip
+    });
+
 
 }
