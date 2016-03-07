@@ -20,13 +20,15 @@ $(document).ready(function() {
    }
    else if(current_page == 'createEvent.html'){
        $(".navbar #createEvent").addClass('active');
+   }else if(current_page == 'myProfile.html'){
+       $(".navbar #myProfile").addClass('active');
    }
    
 })
 
 function initializeNav() {
    
-    var htmlStr2 ='<nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="myEvents.html">URoar</a></div><div class="collapse navbar-collapse" id="myNavbar"><ul class="nav navbar-nav"><li id="myEvents"><a href="myEvents.html">Home</a></li><li id="createEvent"><a href="createEvent.html">Create Event</a></li><li><a href="#">Friends</a></li></ul><ul class="nav navbar-nav navbar-right"> <li><a href="myProfile.html"><span class="glyphicon glyphicon-user"></span> Profile</a></li><li id="logout"><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li></ul></div></div></nav>';
+    var htmlStr2 ='<nav class="navbar navbar-default"><div class="container-fluid"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="myEvents.html">URoar</a></div><div class="collapse navbar-collapse" id="myNavbar"><ul class="nav navbar-nav"></ul><ul class="nav navbar-nav navbar-right"> <li id="myEvents"><a href="myEvents.html"><span class="glyphicon glyphicon-home"></span> Home</a></li><li id="createEvent"><a href="createEvent.html"><span class="glyphicon glyphicon-plus"></span> Create Event</a></li><li><a href="#"><span class="glyphicon glyphicon-th-list"></span> Friends</a></li><li  id="myProfile"><a href="myProfile.html"><span class="glyphicon glyphicon-user"></span> Profile</a></li><li id="logout"><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li></ul></div></div></nav>';
 
     $("#navbar").html(htmlStr2);    
 }
