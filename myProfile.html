@@ -12,11 +12,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="lib/bootstrap.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/1.2.7/spin.min.js"></script>
+    <script src="js/sha256.js"></script>
     <script src="lib/handlebars-v4.0.5.js"></script>
     <!--js-->
     <script src="js/navbar.js"></script>
     <script src="js/myProfile.js"></script>
-    
+   
    
 </head>
   
@@ -29,7 +31,17 @@
 <br>
         <div class="span3 well">
         <center>
-        <img  height="140" class="img-circle" id="icon">
+        <div id="spin"></div>
+        <div id="imgDiv">
+            <center>
+                <img class="img-circle" id="icon" >
+            </center>
+        </div>
+        <br>
+        <br>
+        <button type="button" class="btn btn-default" id="upload-button">Upload Icon</button>
+        <input type="file" accept="image/*" capture="camera" id="file-upload" class="uploadile">
+        <br/>
         <h3 id="usernameText"></h3> 
         <label for="Email">Emaill</label> 
         <p id="emailText"></p>

@@ -3,3 +3,24 @@
 	max-width: 600px;
 
 }
+
+#file-upload{
+
+	display: none !important;
+}
+.uploadFile{
+
+	display: none	!important;
+}
+#icon{
+	
+    height: 150px;
+    
+	width: 150px;
+}
+#imgDiv{
+	width: 150px;
+    height: 150px;
+    overflow: hidden;
+	
+}	

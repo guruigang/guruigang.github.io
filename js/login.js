@@ -113,16 +113,16 @@ function authorizeLogin() {
         }, function(error, authData) {
             if (error) {
                 switch (error.code) {
-                  case "INVALID_EMAIL":
-                   $('#logError').html('<p style="color:red;text-align:center;">ERROR: The user account email is invalid</p>');
+                case "INVALID_EMAIL":
+                    $('#logError').html('<p style="color:red;text-align:center;">ERROR: The user account email is invalid</p>');
                     console.log("The specified user account email is invalid.");
                 break;
                 case "INVALID_PASSWORD":
-                $('#logError').html('<p style="color:red;text-align:center;">ERROR: The user account password is incorrect.</p>');
+                    $('#logError').html('<p style="color:red;text-align:center;">ERROR: The user account password is incorrect.</p>');
                     console.log("The specified user account password is incorrect.");
                 break;
                 case "INVALID_USER":
-                $('#logError').html('<p style="color:red;text-align:center;">ERROR: The user account does not exist.</p>');
+                  $('#logError').html('<p style="color:red;text-align:center;">ERROR: The user account does not exist.</p>');
                   console.log("The specified user account does not exist.");
                 break;
                 default:
