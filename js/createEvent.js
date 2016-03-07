@@ -72,7 +72,7 @@ function geocodeAddress(address) {
 
 
 
-function pushEvent(userName){
+function pushEvent(userName,title,dateTime,numPeople,descrip){
 
   ref.child("events").child(authData.uid).set({
     author:userName,
@@ -113,7 +113,7 @@ function pushInfo(){
     var userName = data.name;
 
     
-    pushEvent(userName);
+    pushEvent(userName,title,dateTime,numPeople,descrip);
 
   }, function (errorObject) {
       console.log("The read failed: " + errorObject.code);
