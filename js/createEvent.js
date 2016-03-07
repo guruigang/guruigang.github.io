@@ -70,6 +70,21 @@ function geocodeAddress(address) {
         });
 }
 
+
+
+function pushEvnet(userName){
+
+  ref.child("events").child(authData.uid).set({
+    author:userName,
+    title:title,
+    time:dateTime,
+    number:numPeople,
+    description:descrip
+    });
+
+
+}
+
 function pushInfo(){
 	var title = $('#titleInput').val();
 	console.log("title is :" + title);
@@ -107,15 +122,3 @@ function pushInfo(){
 }
 
 
-function pushEvnet(userName){
-
-  ref.child("events").child(authData.uid).set({
-    author:userName,
-    title:title,
-    time:dateTime,
-    number:numPeople,
-    description:descrip
-    });
-
-
-}
