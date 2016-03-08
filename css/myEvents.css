@@ -11,7 +11,7 @@ p{
 	margin-top: 10px;
 }
 
-#userIcon{
+.userIcon{
 	
 	margin: 1px;
 	width: 30px;
@@ -27,7 +27,8 @@ p{
 
 	
 }
-#joinButton{
+.btn-block{
+	margin-top:10px; 
 	color:white	;
 	font-size: 17px;
 	font-weight: bolder;
@@ -41,6 +42,7 @@ body {
 
 }
 .btn:active:focus, .btn:focus {
+	color: white;
     outline: transparent;
 
 }

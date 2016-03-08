@@ -60,7 +60,7 @@ function geocodeAddress(address) {
               console.log("lat is"+results[0].geometry.location);
               addressGeo[0] =results[0].geometry.location.lat();
               addressGeo[1] =results[0].geometry.location.lng();
-              geoFire.set("Geocode", addressGeo).then(function() {
+              geoFire.set("geoCode", addressGeo).then(function() {
   				console.log("Provided key has been added to GeoFire");
 			  }, function(error) {
   				console.log("Error: " + error);
