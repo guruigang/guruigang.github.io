@@ -10,6 +10,7 @@
      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
      <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
      <link href="css/navbar.css" rel="stylesheet">
+     <link href="css/createEvent.css" rel="stylesheet">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
@@ -26,8 +27,9 @@
 <body>
     <div id="navbar"></div>
     <div class="container">
-  <h2>Plan Your Event</h2>
-  <form class="form-horizontal" role="form">
+      <div id="warning"></div>
+      <h2>Plan Your Event</h2>
+      <form class="form-horizontal" role="form" id="eventInfo">
    
     <div class="form-group">
       <label class="col-sm-2 control-label">Event Title:</label>   
@@ -35,7 +37,19 @@
         <input class="form-control" id="titleInput" type="text" placeholder="Event Title...">
       </div>
     </div>
-   
+    
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Tags:</label>   
+      <div class="col-sm-10">
+        <input type="checkbox" id="sportLabelBox" value="" style="margin:5px; display:none;"><button  type="button" class="btn btn-primary btn-xs" id="sportLabel" onclick="selectTag(this.id)">#Sport</button>
+        <input type="checkbox" id="gameLabelBox" value="" style="margin:5px; display:none;" ><button  type="button" class="btn btn-success btn-xs" id="gameLabel"  onclick="selectTag(this.id)">#Game</button>
+        <input type="checkbox" id="tripLabelBox"value="" style="margin:5px; display:none;"><button    type="button" class="btn btn-info btn-xs" id="tripLabel" onclick="selectTag(this.id)">#Trip</button>
+        <input type="checkbox" id="foodLabelBox"value="" style="margin:5px; display:none;"><button    type="button" class="btn btn-warning btn-xs" id="foodLabel" onclick="selectTag(this.id)">#Food</button>
+        <input type="checkbox" id="rLabelBox"value="" style="margin:5px; display:none;"><button  type="button" class="btn btn-danger btn-xs" id="rLabel"  onclick="selectTag(this.id)">#R</button>
+ 
+      </div>
+    </div>
+
      <div class="form-group">
       <label class="col-sm-2 control-label">Start at:</label>
       <div class="col-sm-10">
@@ -48,7 +62,7 @@
     <div class="form-group">
       <label class="col-sm-2 control-label">Lcation:</label>
      <div class="col-sm-10" id="locationField">
-      <input class="form-control" id="autocomplete" placeholder="Enter the address"
+      <input class="form-control" id="autocomplete" placeholder="Enter the address..."
              onFocus="geolocate()" type="text"></input>
      </div>
     </div>
@@ -56,7 +70,7 @@
     <div class="form-group">
       <label class="col-sm-2 control-label">Number of People:</label>
       <div class="col-sm-10">
-        <input class="form-control" id="numInput" type="number">
+        <input class="form-control" id="numInput" type="number" placeholder="Number of People...">
       </div>
     </div>
 

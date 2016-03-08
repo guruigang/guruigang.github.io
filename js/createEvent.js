@@ -8,6 +8,9 @@ var authData = ref.getAuth();
 
 $(document).ready(function() {
 
+
+
+
 })
 
 var placeSearch, autocomplete;
@@ -86,6 +89,46 @@ function pushEvent(userName,title,dateTime,numPeople,descrip){
 }
 
 function pushInfo(){
+  //get Tags
+  if ($("#eventInfo input:checkbox:checked").length > 0)
+  {
+    // any one is checked
+    var tags=[];
+    if(document.getElementById("sportLabelBox").checked==true){
+      tags.push("sport");
+
+    }
+    if(document.getElementById("gameLabelBox").checked==true){
+      tags.push("game");
+
+    }
+    if(document.getElementById("tripLabelBox").checked==true){
+      tags.push("trip");
+
+    }
+    if(document.getElementById("foodLabelBox").checked==true){
+      tags.push("food");
+
+    }
+    if(document.getElementById("rLabelBox").checked==true){
+      tags.push("R");
+
+    }
+
+    console.log("tag has"+ tags.toString());
+
+  }
+  else
+  {
+    
+  $( "#warning" ).append( "  <div class='alert alert-warning fade in'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Warning!</strong> Please Choose one of the Tags.</div>" );
+  return;
+  
+  }
+
+
+
+
 	var title = $('#titleInput').val();
 	console.log("title is :" + title);
 	var dateTime = $("#dateTimeInput").val().replace("T"," ");
@@ -100,6 +143,7 @@ function pushInfo(){
   //push evet info under user
 	ref.child("users").child(authData.uid).child("event").set({
 		title:title,
+    tags:tags,
 		time:dateTime,
 		number:numPeople,
 		description:descrip
@@ -122,3 +166,51 @@ function pushInfo(){
 }
 
 
+function selectTag(labelId){
+
+  var color;
+  switch(labelId){
+    case "sportLabel":
+      color='#337ab7';
+    break;
+    case "gameLabel":
+      color = '#5cb85c'
+    break;
+    case "tripLabel":
+      color = '#5bc0de'
+    break;
+    case "foodLabel":
+      color = '#f0ad4e'
+    break;
+    case "rLabel":
+      color = '#d9534f'
+    break;
+
+  }
+  var sportLabelColor = '#337ab7';
+  var gameLabelColor ='#5cb85c';
+  var tripLabelColor = '#5bc0de';
+  var foodLabelColor ='#f0ad4e';
+  var rLabelColor = '#d9534f';
+
+  console.log("id is"+labelId);
+  var el = document.getElementById(labelId);
+  var idName = labelId+'Box';
+  
+  console.log (idName);
+
+  var box = document.getElementById(idName);
+
+  if (box.checked == false){
+    box.checked=true;
+    el.style.backgroundColor=color;
+
+  }
+  else{
+    box.checked=false;
+    el.style.backgroundColor='#D8D8D8';
+
+  }
+  
+
+}

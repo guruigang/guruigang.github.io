@@ -1,0 +1,33 @@
+#sportLabel{
+
+	background-color: #D8D8D8;
+}
+#gameLabel{
+	background-color: #D8D8D8;
+}
+#tripLabel{
+	background-color: #D8D8D8;
+}
+#foodLabel{
+	background-color: #D8D8D8;
+}
+#rLabel{
+	background-color: #D8D8D8;
+}
+span{
+
+	margin: 5px;
+
+}
+.btn-xs{
+	font-size: 15px;
+	border-radius: 90px;
+	margin: 5px;
+}
+.btn:active:focus, .btn:focus {
+    outline: transparent;
+}
+.btn{
+	border: 0px;
+
+}
