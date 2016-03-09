@@ -68,12 +68,12 @@ function displayEvents(data){
       var payload = data.filePayload;
       if (payload != null) {
         var imgId=data.name+"Icon";
-        html+='<p  id="cardHeader"><img class="userIcon" id='+imgId+' align="middle"> '+data.name+'</p></header><div class="w3-container" data-toggle="modal" data-target="#myModal">';
+        html+='<p  id="cardHeader"><img class="userIcon" id='+imgId+' align="middle"> '+data.name+'</p></header><div class="w3-container" onclick="openDetailModal()" >';
         
         console.log("imgId is "+imgId);
         
       } else {
-        html+='<p id="cardHeader"><img src="img/emptyIcon.jpg" class="userIcon" align="middle"> '+data.name+'</p></header><div class="w3-container" data-toggle="modal" data-target="#myModal">';
+        html+='<p id="cardHeader"><img src="img/emptyIcon.jpg" class="userIcon" align="middle"> '+data.name+'</p></header><div class="w3-container" onclick="openDetailModal()">';
       }
      
 
@@ -106,4 +106,9 @@ function displayEvents(data){
 
 
   return html;
+}
+
+function openDetailModal(){
+  $('#myModal').modal('show');
+
 }
