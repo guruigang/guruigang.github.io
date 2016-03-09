@@ -68,7 +68,7 @@ function displayEvents(data){
       var payload = data.filePayload;
       if (payload != null) {
         var imgId=data.name+"Icon";
-        html+='<p id="cardHeader"><img class="userIcon" id='+imgId+' align="middle"> '+data.name+'</p></header><div class="w3-container" data-toggle="modal" data-target="#myModal">';
+        html+='<p  id="cardHeader"><img class="userIcon" id='+imgId+' align="middle"> '+data.name+'</p></header><div class="w3-container" data-toggle="modal" data-target="#myModal">';
         
         console.log("imgId is "+imgId);
         
@@ -77,7 +77,7 @@ function displayEvents(data){
       }
      
 
-     html+='<p><strong>'+data.event.title+'</strong><span style="float:right" class="label label-pill label-default">'+data.event.number+' people</span></p>';
+     html+='<p ><strong class="eventTitle">'+data.event.title+'</strong><span style="float:right" class="label label-pill label-default">'+data.event.number+' people</span></p>';
      html+='<p>Start At: '+data.event.time+'</p>';
      for  (index = 0; index < data.event.tags.length; index++) {
         switch(data.event.tags[index]){
