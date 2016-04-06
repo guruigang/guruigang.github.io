@@ -55,3 +55,6 @@ body {
 .eventTitle{
 	font-size: 20px;
 }
+#modalContainer{
+	max-width: 550px;
+}
